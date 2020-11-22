@@ -35,16 +35,16 @@ void setup()  {
 
   // Set the current date, and time in the following format:
   // setDS1302Time(seconds, minutes, hours, day of the week, day of the month, month, year);
-  myRTC.setDS1302Time(seconds, minutes, hours, dayOfTheWeek, dayOfTheMonth, monthh, yearr);
-  myRTC.updateTime();
-  
-  Serial.println("Attemp to set the clock in RTC Completed.");
-  Serial.println(" ");
+  myRTC.setDS1302Time(seconds, minutes, hours, dayOfTheWeek, dayOfTheMonth, monthh, yearr); 
+  Serial.println("Attempted to set the clock in RTC Completed.");
+
+    myRTC.updateTime();
   if (CheckClockAfterSet()){
     Serial.println("Sucess! Setting up of RTC Completed.");
   } else {
     Serial.println("Failed!");
   }
+  Serial.println(" ");
 }
 
 void loop(){

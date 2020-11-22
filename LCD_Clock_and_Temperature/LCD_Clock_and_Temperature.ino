@@ -39,10 +39,12 @@ float humidity, temp, heatIndex;
 void setup()
 {
   Serial.begin(9600);
+
+  // initialize DHT and lcd
   dht.begin();
-  lcd.init();                      // initialize the lcd
-  // Print a message to the LCD.
+  lcd.init(); 
   lcd.backlight();
+  
   printSplashLCD();
   delay(5000);
   lcd.clear();
