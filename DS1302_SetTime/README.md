@@ -1,8 +1,7 @@
-# Arduino_Playground
- 
+# DS1302_SetTime
 To set time in DS1302 using [virtuabotixRTC](https://github.com/chrisfryer78/ArduinoRTClibrary)
 
-Create virtuabotixRTC
+1- Create virtuabotixRTC
 ```
 // Creation of the Real Time Clock Object
 // myRTC(CE, IO, CLK)
@@ -12,7 +11,7 @@ Create virtuabotixRTC
 virtuabotixRTC myRTC(6, 7, 8);
 ```
 
-Change the values 
+2- Change the values 
 ```
 // Change this to update the DS1302 Time
 int seconds = 40;
@@ -24,7 +23,7 @@ int monthh = 11;
 int yearr = 2020; 
 ```
 
-Update 
+3- Update 
 ```
 myRTC.setDS1302Time(seconds, minutes, hours, dayOfTheWeek, dayOfTheMonth, monthh, yearr);
 ```
