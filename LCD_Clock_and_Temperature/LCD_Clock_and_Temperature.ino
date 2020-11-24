@@ -41,6 +41,9 @@ void setup()
   Serial.begin(9600);
 
   // initialize DHT and lcd
+  pinMode(LED_BUILTIN, OUTPUT);
+  analogWrite(LED_BUILTIN, 255);
+  
   dht.begin();
   lcd.init(); 
   lcd.backlight();
@@ -53,6 +56,8 @@ void setup()
 void loop()
 {
   myRTC.updateTime();
+  analogWrite(LED_BUILTIN, 10);
+
   humidity = dht.readHumidity();
   temp = dht.readTemperature();
   heatIndex = dht.computeHeatIndex(temp, humidity, false); // Compute heat index in Celsius
@@ -105,11 +110,13 @@ void loop()
   lcd.setCursor(0, 1);
   printToggle();
 
-  // Delay so the program doesn't print non-stop                                                           //|
+  analogWrite(LED_BUILTIN, 0);
+  // Delay so the program doesn't print non-stop
   delay( 1000);
 }
 
 void printToggle() {
+  digitalWrite(LED_BUILTIN, HIGH);
   lcd.setCursor(0, 1);
   // Check if any reads failed and exit early (to try again).
   if (isnan(humidity) || isnan(temp)) {
